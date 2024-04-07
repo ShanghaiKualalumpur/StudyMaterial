@@ -9,6 +9,7 @@ def makeindex(directory_name):
     Location = Location[17:]
 
     with open("index.html","w") as index :
+        goback=f"<a href='../'>go back</a>\n"
         titleblock = f"<title> {Location} </title>\n"
         breadcrumb =f"<i> {Location} </i>\n</br>\n"
         heading = (Location.split("/"))[-1]
@@ -19,6 +20,7 @@ def makeindex(directory_name):
         index.writelines(l+"\n" for l in lines[:5])
         index.writelines(titleblock)
         index.writelines(breadcrumb)
+        index.writelines(goback)
         index.writelines(headingblock)
         index.writelines(l+"\n" for l in lines[5:7])
         index.writelines(Hyperlinks)
